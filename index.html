@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soane Liku ILOAI, portfolio</title>
+<meta name="description" content="Portfolio de Soane Liku ILOAI : création visuelle, vidéo produit, contenu et développement web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Wallis-et-Futuna, version sobre : fond sable clair, encre bleu nuit du Pacifique, rouge du drapeau en seul accent, lagon en touche. */
+  --sable:#fbfaf6;
+  --panneau:#f1ece2;
+  --encre:#13213c;
+  --gris:#565d6b;
+  --rouge:#c8102e;
+  --lagon:#1d7f96;
+  --trait:rgba(19,33,60,.14);
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:ui-monospace, "Cascadia Code", Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--sable);color:var(--encre);font:400 18px/1.6 var(--body)}
+img,video{max-width:100%;display:block}
+a{color:var(--encre);text-decoration-color:var(--rouge);text-decoration-thickness:2px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rouge);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+.lead{max-width:64ch;color:var(--gris)}
+
+/* Croix du drapeau de Wallis : quatre triangles qui se rejoignent au centre */
+.croix{display:inline-block;width:.9em;height:.9em;vertical-align:-.08em;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23c8102e'/%3E%3Cg fill='%23fff'%3E%3Cpath d='M30 10h40L50 48z'/%3E%3Cpath d='M90 30v40L52 50z'/%3E%3Cpath d='M70 90H30l20-38z'/%3E%3Cpath d='M10 70V30l38 20z'/%3E%3C/g%3E%3C/svg%3E")}
+
+header{padding:28px 0 52px;border-bottom:1px solid var(--trait)}
+.barre{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--display);font-weight:600;font-size:15px;margin-bottom:56px}
+.barre nav{display:flex;gap:18px;flex-wrap:wrap}
+.barre nav a{text-decoration:none;color:var(--gris)}
+.barre nav a:hover{color:var(--encre);text-decoration:underline;text-decoration-color:var(--rouge)}
+.pour{font-size:15px;color:var(--rouge);font-weight:600;margin-bottom:16px}
+h1{font-size:clamp(42px,7.4vw,86px);font-weight:800;letter-spacing:-.02em}
+.role{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.6vw,28px);margin:16px 0 20px;max-width:30ch}
+.role em{font-style:normal;color:var(--rouge)}
+.outils{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;padding:0;list-style:none}
+.outils li{border:1px solid var(--trait);background:#fff;padding:4px 12px;font-size:15px}
+.outils li.cle{border-color:var(--encre)}
+.contact{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:24px;font-size:16px;color:var(--gris)}
+.contact b{color:var(--encre);font-weight:600}
+
+section{padding:64px 0;border-bottom:1px solid var(--trait)}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--lagon);margin-bottom:10px}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;letter-spacing:-.01em}
+.intro{margin:16px 0 30px}
+
+/* Tableau missions / preuves */
+.missions{display:grid;gap:0;border-top:2px solid var(--encre)}
+.ligne{display:grid;grid-template-columns:minmax(180px,1fr) 2fr;gap:8px 32px;padding:18px 0;border-bottom:1px solid var(--trait)}
+.ligne h3{font-size:19px;font-weight:600;display:flex;gap:10px;align-items:baseline}
+.ligne p{color:var(--gris)}
+.ligne p a{color:var(--encre)}
+@media (max-width:700px){.ligne{grid-template-columns:1fr}}
+
+/* Projets */
+.tete{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:baseline;margin-bottom:22px}
+.num{font-family:var(--display);font-weight:800;font-size:20px;color:var(--rouge);grid-row:span 2}
+.tags{font-size:15px;color:var(--lagon);font-weight:600}
+.texte{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px 44px;margin-bottom:28px}
+.texte p{color:var(--gris);max-width:62ch}
+.texte p b{color:var(--encre);font-weight:600}
+.galerie{display:grid;gap:16px;grid-template-columns:repeat(12,1fr);align-items:start}
+.galerie figure{margin:0;display:flex;flex-direction:column;gap:8px}
+.galerie button{all:unset;cursor:zoom-in;display:block;background:#fff;border:1px solid var(--trait)}
+.galerie button:focus-visible{outline:2px solid var(--rouge);outline-offset:3px}
+.galerie img{width:100%;height:auto}
+figcaption{font-size:15px;color:var(--gris)}
+.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+@media (max-width:760px){.galerie>*{grid-column:span 12}}
+video{width:100%;background:#000}
+.ia{display:inline-block;font-family:var(--display);font-size:12px;font-weight:600;color:#fff;background:var(--lagon);padding:0 6px;margin-right:6px;vertical-align:1px}
+
+/* Extrait de tableur */
+.tableur{overflow-x:auto;border:1px solid var(--trait);background:#fff}
+.tableur table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+.tableur th,.tableur td{border:1px solid var(--trait);padding:8px 10px;text-align:left;vertical-align:top}
+.tableur th{background:var(--panneau);font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.03em}
+.tableur td:first-child,.tableur td:nth-child(2),.tableur td:nth-child(3){white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* Code */
+pre{margin:0;background:var(--encre);color:#e9edf5;padding:18px 20px;overflow-x:auto;font:14px/1.55 var(--mono)}
+pre .k{color:#ff9aa8}
+pre .s{color:#9fd8e6}
+pre .c{color:#8d97ab}
+
+/* Cartes dev */
+.cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.carte{background:#fff;border:1px solid var(--trait);display:flex;flex-direction:column}
+.carte .vis{border-bottom:1px solid var(--trait);background:var(--panneau);aspect-ratio:16/10;overflow:hidden}
+.carte .vis img{width:100%;height:100%;object-fit:cover;object-position:top}
+.carte .corps{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.carte h3{font-size:21px;font-weight:800}
+.carte .stack{font-family:var(--mono);font-size:13px;color:var(--lagon)}
+.carte p{color:var(--gris);font-size:16px}
+.carte.sans .corps{border-top:4px solid var(--rouge)}
+
+/* Bandeau final */
+footer{background:var(--encre);color:#fff;padding:64px 0 72px}
+footer h2{color:#fff}
+footer .lead{color:#c7cede;margin:16px 0 24px}
+footer .contact{color:#c7cede;font-size:18px}
+footer .contact b,footer a{color:#fff}
+
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh}
+dialog::backdrop{background:rgba(19,33,60,.92)}
+dialog img{max-height:88vh;width:auto;margin:0 auto}
+dialog form{text-align:right;margin-bottom:8px}
+dialog button{background:#fff;color:var(--encre);border:0;padding:6px 16px;font:600 15px var(--body);cursor:pointer}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="barre">
+      <span><span class="croix" aria-hidden="true"></span>&nbsp; Soane Liku ILOAI</span>
+      <nav aria-label="Sommaire">
+        <a href="#missions">Vos missions</a>
+        <a href="#video">Vidéo produit</a>
+        <a href="#contenu">Contenu</a>
+        <a href="#dev">Développement</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="pour">Candidature pour l'alternance business developer &amp; marketing chez Lifmo (Deebr), janvier 2027</p>
+    <h1>Soane Liku ILOAI</h1>
+    <p class="role">Je fais des visuels, des vidéos et des pages web <em>qui donnent envie d'acheter</em>.</p>
+    <p class="lead">Étudiant en BUT Métiers du Multimédia et de l'Internet (bac+3) à l'IUT de Béziers. Je viens de Wallis-et-Futuna, où j'ai fait la communication d'événements jeunesse, des réseaux sociaux jusqu'au porte-à-porte. Je sais écrire, filmer, monter, coder, et je prends en main un nouvel outil tout seul.</p>
+    <ul class="outils" aria-label="Compétences">
+      <li class="cle">Rédaction</li><li class="cle">Vidéo courte</li><li class="cle">IA générative</li><li class="cle">Tableur</li><li class="cle">LinkedIn &amp; réseaux</li>
+      <li>Photoshop</li><li>Illustrator</li><li>InDesign</li><li>DaVinci Resolve</li><li>After Effects</li>
+      <li>HTML / CSS / JS</li><li>PHP / MySQL</li><li>Python</li><li>Git</li>
+    </ul>
+    <div class="contact">
+      <span><b>Mail</b> <a href="mailto:liku.iloai986@gmail.com">liku.iloai986@gmail.com</a></span>
+      <span><b>LinkedIn</b> Soane Liku ILOAI</span>
+      <span><b>Permis B</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="missions" aria-labelledby="t-missions">
+  <div class="wrap">
+    <p class="eyebrow">Ce que vous demandez</p>
+    <h2 id="t-missions">Vos missions, et où je les ai déjà pratiquées</h2>
+    <p class="lead intro">Chaque ligne renvoie à une preuve plus bas dans la page.</p>
+    <div class="missions">
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Prospection</h3><p>À Wallis, je devais remplir des événements jeunesse : messages sur les réseaux, relances, puis porte-à-porte pour convaincre. Au hackathon de l'entrepreneuriat 2026, j'ai présenté une solution RSE à un vrai client, la cave coopérative des Vignerons du Pays d'Ensérune.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Téléphone et rendez-vous</h3><p>Le porte-à-porte m'a appris à parler à des inconnus et à encaisser un refus. Le téléphone ne me fait pas peur.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Posts LinkedIn</h3><p>Community manager pour la MIJ à Wallis-et-Futuna. J'ai aussi conçu une <a href="#contenu">série de templates de posts</a> pour une marque e-commerce, avec l'IA générative.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Articles et newsletter</h3><p>J'ai rédigé un <a href="#contenu">article d'analyse</a> sur notre publicité BIC : pourquoi une pub peut vendre sans montrer le produit.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Vidéo produit</h3><p>Une pub de stylo tournée et montée en équipe, un <a href="#video">découpage technique de 60 s</a> plan par plan dans un tableur, un teaser animé, et un script qui <a href="#video">génère une vidéo After Effects</a> automatiquement.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Outils et autonomie</h3><p>Tableur, LinkedIn, ChatGPT, Gemini, ElevenLabs. J'ai appris seul Python pour construire <a href="#dev">KUMI</a>, et à déployer une appli sur Vercel pour <a href="#dev">Spoti'Stat</a>.</p></div>
+      <div class="ligne"><h3><span class="croix" aria-hidden="true"></span>Salons</h3><p>À Wallis, j'ai participé aux événements jeunesse que je communiquais, au contact direct du public.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="video" aria-labelledby="t-video">
+  <div class="wrap">
+    <p class="eyebrow">Vidéo produit</p>
+    <div class="tete">
+      <span class="num">01</span>
+      <h2 id="t-video">Faire vendre un stylo en 60 secondes</h2>
+      <span class="tags">Pub BIC : tournage, montage, découpage technique, DaVinci Resolve, tableur</span>
+    </div>
+    <div class="texte">
+      <p><b>Le spot.</b> Une pub de stylo BIC tournée en équipe : une amitié entre deux étudiantes, et le stylo qui n'apparaît qu'aux deux moments où il compte. Le plan produit ci-contre, avec sa mise au point qui glisse sur le stylo, ferme l'histoire.</p>
+      <p><b>Le découpage.</b> Pour une deuxième version, « Héritage &amp; Prestige », j'ai écrit le découpage technique complet dans un tableur : 7 scènes, timecodes, cadrage, traitement de l'image et émotion visée à chaque plan.</p>
+    </div>
+    <div class="galerie">
+      <figure class="c12"><button type="button" data-full="img/bic-produit.jpg"><img src="img/bic-produit.jpg" alt="Plan produit : un stylo BIC Cristal posé sur un bureau, cahier flou à l'arrière-plan" loading="lazy" width="1400" height="788"></button><figcaption>Plan produit du spot, mise au point sur le stylo</figcaption></figure>
+      <div class="c12 tableur" role="region" aria-label="Extrait du découpage technique" tabindex="0">
+        <table>
+          <thead><tr><th>N°</th><th>Timecode</th><th>Durée</th><th>Scène</th><th>Caméra</th><th>Émotion</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>0:00 – 0:06</td><td>6 s</td><td>Archives noir et blanc : salle de classe des années 50, gros plan sur une main qui écrit au BIC Cristal.</td><td>Macro plongeante, insert sur la bille</td><td>Nostalgie</td></tr>
+            <tr><td>04</td><td>0:22 – 0:32</td><td>10 s</td><td>Scène pivot : le stylo seul sur marbre blanc, éclairé comme au musée.</td><td>Zoom avant très lent, axe frontal</td><td>Révélation</td></tr>
+            <tr><td>06</td><td>0:42 – 0:52</td><td>10 s</td><td>Écran partagé : à gauche le monde change, à droite le stylo reste le même. Surimpression « +100 milliards vendus ».</td><td>Split-screen vertical</td><td>Permanence</td></tr>
+            <tr><td>07</td><td>0:52 – 1:00</td><td>8 s</td><td>La petite-fille montre son dessin fait au BIC. Logo, puis la signature : « L'essentiel, depuis toujours. »</td><td>Face caméra, fondu au blanc</td><td>Fierté</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tete" style="margin-top:56px">
+      <span class="num">02</span>
+      <h2>Une vidéo générée par un script</h2>
+      <span class="tags">Motion design : After Effects + JavaScript (ExtendScript), voix off IA ElevenLabs</span>
+    </div>
+    <div class="texte">
+      <p><b>L'idée.</b> Plutôt que d'animer chaque calque à la main, j'ai écrit un script qui construit tout le projet After Effects : une vidéo de 35 secondes en 1920 × 1080, avec ses scènes, ses textes, ses formes et ses animations.</p>
+      <p><b>Pourquoi ça vous parle.</b> C'est la même logique que Lifmo : passer de quelques éléments fixes à une vidéo courte, de façon répétable. La voix off a été générée avec ElevenLabs.</p>
+    </div>
+<div class="galerie" style="margin-bottom:16px">
+      <figure class="c6"><button type="button" data-full="img/r311-scene1.jpg"><img src="img/r311-scene1.jpg" alt="Scène 1 de la vidéo : Recruter un-e alternant-e, un investissement gagnant pour votre entreprise, texte noir sur fond bleu royal" loading="lazy" width="1400" height="788"></button><figcaption>Scène 1, l'accroche</figcaption></figure>
+      <figure class="c6"><button type="button" data-full="img/r311-scene5.jpg"><img src="img/r311-scene5.jpg" alt="Scène 5 de la vidéo : Ce que vous y gagnez, trois bénéfices cochés en doré" loading="lazy" width="1400" height="788"></button><figcaption>Scène 5, les bénéfices pour l'entreprise</figcaption></figure>
+      <p class="c12" style="font-size:15px;color:var(--gris)">Images recréées à partir des textes, couleurs et positions écrits dans le script, sans les illustrations animées.</p>
+    </div>
+<pre aria-label="Extrait du script After Effects"><span class="c">// R311 - Motion design : le script crée la composition, les scènes et les animations</span>
+<span class="k">var</span> W = 1920, H = 1080, FPS = 30, DUR = 35;
+<span class="k">var</span> BLEU = hex(<span class="s">"#4169E1"</span>), FONCE = hex(<span class="s">"#1F3A9A"</span>), OR = hex(<span class="s">"#E6B422"</span>);
+
+<span class="k">function</span> fondu(l, t)  { keys(tr(l, <span class="s">"ADBE Opacity"</span>), [t, t + 0.5], [0, 100]); }
+<span class="k">function</span> glisse(l, t) { <span class="k">var</span> p = tr(l, <span class="s">"ADBE Position"</span>), v = xy(p.value);
+                       keys(p, [t, t + 0.5], [[v[0] - 1300, v[1]], v]); }
+<span class="k">function</span> scene(arr, a, b) { <span class="k">for</span> (<span class="k">var</span> i = 0; i &lt; arr.length; i++) { arr[i].inPoint = a; arr[i].outPoint = b; } }</pre>
+
+    <div class="tete" style="margin-top:56px">
+      <span class="num">03</span>
+      <h2>Cyber Carnage, du jeu à sa campagne</h2>
+      <span class="tags">Jeu en JavaScript (Phaser 3) en binôme, affiche, teaser animé, posts réseaux</span>
+    </div>
+    <div class="texte">
+      <p><b>Le produit.</b> Un jeu de plateforme rétro codé en binôme en JavaScript avec Phaser 3 : joueur, ennemis, deux cartes.</p>
+      <p><b>Le lancement.</b> Une accroche, « Arriverez-vous à sauver le monde ? », déclinée en affiche, en teaser de 33 secondes et en maquettes de posts Instagram et TikTok.</p>
+    </div>
+    <div class="galerie">
+      <figure class="c4"><button type="button" data-full="img/cyber-affiche.jpg"><img src="img/cyber-affiche.jpg" alt="Affiche du jeu Cyber Carnage en pixel art" loading="lazy" width="990" height="1400"></button><figcaption>Affiche de lancement</figcaption></figure>
+      <figure class="c8"><video controls preload="none" playsinline poster="img/cyber-teaser-poster.jpg" aria-label="Teaser vidéo Cyber Carnage, 33 secondes"><source src="img/cyber-teaser.mp4" type="video/mp4"></video><figcaption>Teaser de 33 s en typographie animée</figcaption></figure>
+      <figure class="c6"><button type="button" data-full="img/cyber-reseaux.jpg"><img src="img/cyber-reseaux.jpg" alt="Maquettes de posts TikTok et Instagram pour Cyber Carnage" loading="lazy" width="1365" height="768"></button><figcaption><span class="ia">IA</span>Maquettes TikTok et Instagram, Gemini</figcaption></figure>
+      <figure class="c6"><button type="button" data-full="img/cyber-storyboard.jpg"><img src="img/cyber-storyboard.jpg" alt="Storyboard du spot Cyber Carnage" loading="lazy" width="1536" height="1024"></button><figcaption><span class="ia">IA</span>Storyboard du spot, plan par plan</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contenu" aria-labelledby="t-contenu">
+  <div class="wrap">
+    <p class="eyebrow">Contenu et rédaction</p>
+    <div class="tete">
+      <span class="num">04</span>
+      <h2 id="t-contenu">Écrire et produire du contenu qui vend</h2>
+      <span class="tags">Article, templates de posts, IA générative</span>
+    </div>
+    <div class="texte">
+      <p><b>L'article.</b> « Un stylo, une amitié : quand BIC fait pleurer sans montrer son produit ». J'y analyse notre spot : ouvrir sur l'émotion, faire du produit un symbole, et laisser le spectateur associer la marque à des valeurs plutôt que lui dire d'acheter.</p>
+      <p><b>Les posts.</b> Une série de dix posts et stories pour une marque de compléments alimentaires vendue en ligne, générée et itérée avec ChatGPT : routine, bénéfices, preuve sociale, appel à l'action. Le genre de série que j'aimerais faire pour LinkedIn chez Lifmo.</p>
+    </div>
+    <div class="galerie">
+      <figure class="c4"><button type="button" data-full="img/article-bic.jpg"><img src="img/article-bic.jpg" alt="Première page de l'article : Un stylo, une amitié, quand BIC fait pleurer sans montrer son produit" loading="lazy" width="745" height="1053"></button><figcaption>L'article, page 1</figcaption></figure>
+      <figure class="c8"><button type="button" data-full="img/ia-vita-templates.jpg"><img src="img/ia-vita-templates.jpg" alt="Dix templates de posts Instagram pour une marque de compléments alimentaires" loading="lazy" width="1536" height="1024"></button><figcaption><span class="ia">IA</span>Série de posts et stories e-commerce, ChatGPT</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="dev" aria-labelledby="t-dev">
+  <div class="wrap">
+    <p class="eyebrow">Développement</p>
+    <div class="tete">
+      <span class="num">05</span>
+      <h2 id="t-dev">Je sais aussi ce qu'il y a derrière une page web</h2>
+      <span class="tags">Utile pour parler aux équipes e-commerce, comprendre un A/B test ou lire une fiche produit</span>
+    </div>
+    <div class="cartes">
+      <article class="carte">
+        <div class="vis"><img src="img/fabi.jpg" alt="Catalogue filtrable du site du Musée du FABI" loading="lazy" width="1400" height="771"></div>
+        <div class="corps"><h3>Musée du FABI</h3><span class="stack">PHP, MySQL (PDO), JavaScript</span><p>Site dynamique avec billetterie et tarifs calculés automatiquement, collections filtrables, espace membre, likes et commentaires, et tableau de bord pour l'administrateur. Base relationnelle de 9 tables.</p></div>
+      </article>
+      <article class="carte">
+        <div class="vis"><img src="img/kumi.jpg" alt="Page d'accueil de KUMI, l'analyseur de fichiers" loading="lazy" width="1400" height="875"></div>
+        <div class="corps"><h3>KUMI</h3><span class="stack">Python, HTML/JS, Supabase</span><p>Un outil qui vérifie si un fichier est dangereux avant de l'ouvrir : antivirus Windows, règles de détection, réputation en ligne, quarantaine. Projet personnel, appris et construit seul.</p></div>
+      </article>
+      <article class="carte">
+        <div class="vis"><img src="img/halles.jpg" alt="Page d'accueil du site des Halles de Béziers" loading="lazy" width="1400" height="771"></div>
+        <div class="corps"><h3>Les Halles de Béziers</h3><span class="stack">HTML, CSS, JavaScript, A-Frame</span><p>Site vitrine de 4 pages pour mettre en avant les commerçants, avec une visite virtuelle à 360°.</p></div>
+      </article>
+      <article class="carte">
+        <div class="vis"><img src="img/spotistat.jpg" alt="Tableau de bord Spoti'Stat : top 10 des artistes en barres et répartition des genres en anneau" loading="lazy" width="1400" height="875"></div>
+        <div class="corps"><h3>Spoti'Stat</h3><span class="stack">JavaScript, API Spotify, Vercel</span><p>Un tableau de bord d'écoutes musicales : morceaux, artistes, genres, évolution sur 30 jours. Connexion au compte Spotify, données synchronisées et appli déployée sur Vercel. Projet personnel, conçu et codé seul.</p></div>
+      </article>
+      <article class="carte sans">
+        <div class="corps"><h3>Site WordPress pour une coach</h3><span class="stack">WordPress, conception centrée utilisateur</span><p>Site vitrine pour une commanditaire en orientation : accompagnements, services et prise de contact.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="crea" aria-labelledby="t-crea">
+  <div class="wrap">
+    <p class="eyebrow">Création visuelle</p>
+    <div class="tete">
+      <span class="num">06</span>
+      <h2 id="t-crea">Identités, affiches et chartes</h2>
+      <span class="tags">Illustrator, Photoshop, InDesign</span>
+    </div>
+    <div class="texte">
+      <p><b>Ocean Dishes.</b> L'identité complète d'un restaurant de la mer, en solo : logo, palette, typographie, moodboard et goodies.</p>
+      <p><b>Et aussi.</b> L'affiche d'une soirée karaoké pour un bar, la charte graphique d'une appli (en équipe de trois) et un logo pour Wallis-et-Futuna.</p>
+    </div>
+    <div class="galerie">
+      <figure class="c5"><button type="button" data-full="img/ocean-identite.jpg"><img src="img/ocean-identite.jpg" alt="Planche d'identité Ocean Dishes : logo, palette, typographie et goodies" loading="lazy" width="904" height="1400"></button><figcaption>Ocean Dishes, planche d'identité</figcaption></figure>
+      <figure class="c7"><button type="button" data-full="img/ocean-moodboard.jpg"><img src="img/ocean-moodboard.jpg" alt="Moodboard d'ambiance Ocean Dishes" loading="lazy" width="1400" height="1120"></button><figcaption>Ocean Dishes, moodboard</figcaption></figure>
+      <figure class="c4"><button type="button" data-full="img/aperou.jpg"><img src="img/aperou.jpg" alt="Affiche de la soirée karaoké L'Apérou" loading="lazy" width="1080" height="1350"></button><figcaption>Affiche de soirée, L'Apérou</figcaption></figure>
+      <figure class="c4"><button type="button" data-full="img/aura-declinaisons.jpg"><img src="img/aura-declinaisons.jpg" alt="Déclinaisons du logo Aura Safe" loading="lazy" width="1400" height="788"></button><figcaption>Charte Aura Safe, en équipe</figcaption></figure>
+      <figure class="c4"><button type="button" data-full="img/logo-wallis.jpg"><img src="img/logo-wallis.jpg" alt="Logo Wallis-et-Futuna, îles du Pacifique" loading="lazy" width="900" height="600"></button><figcaption>Logo Wallis-et-Futuna</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2><span class="croix" aria-hidden="true"></span>&nbsp;On en parle de vive voix ?</h2>
+    <p class="lead">Disponible à partir de janvier 2027 pour un contrat d'apprentissage à Montpellier, avec des déplacements à Paris pour les salons.</p>
+    <div class="contact">
+      <span><b>Mail</b> <a href="mailto:liku.iloai986@gmail.com">liku.iloai986@gmail.com</a></span>
+      <span><b>LinkedIn</b> Soane Liku ILOAI</span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="visionneuse" aria-label="Image agrandie">
+  <form method="dialog"><button type="submit">Fermer</button></form>
+  <img id="visionneuse-img" alt="">
+</dialog>
+<script>
+const dlg=document.getElementById('visionneuse'),big=document.getElementById('visionneuse-img');
+document.querySelectorAll('[data-full]').forEach(b=>b.addEventListener('click',()=>{
+  big.src=b.dataset.full; big.alt=b.querySelector('img').alt;
+  if(dlg.showModal) dlg.showModal(); else window.location.href=b.dataset.full;
+}));
+dlg.addEventListener('click',e=>{if(e.target===dlg) dlg.close();});
+</script>
+</body>
+</html>
